@@ -9,15 +9,15 @@ const app = express();
 app.use(express.json());
 
 //set view engine
-app.engine("handlebars", exphbs()); //{ defaultLayout: false }
+app.engine("handlebars", exphbs());
 app.set("view engine", "handlebars");
 
 //we need to configure that we are using the url
 app.use(express.urlencoded({ extended: true }));
 
 //set router
-app.use("/", weatherRoutes);
 app.use("/api/weather", apiWeatherRoutes);
+app.use("/", weatherRoutes);
 app.use(wrongPathRoute);
 
 export default app;

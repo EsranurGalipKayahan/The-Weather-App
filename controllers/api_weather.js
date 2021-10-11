@@ -7,21 +7,18 @@ import {
   SERVER_ERROR_CODE,
   SUCCESS_CODE,
 } from "../sources/constants.js";
-/* This file is belonged to the previous week */
+
 const processValidResponse = (res, msg, statusCode, degree) => {
   const obj = getObj(msg, degree);
   res.status(statusCode).send(obj);
 };
-const processInvalidResponse = (res, msg, statusCode) => {
-  const obj = getObj(msg);
-  res.status(statusCode).send(obj);
-};
+
 const processErrorResponse = (res, msg, statusCode) => {
   const obj = getErrorObj(msg, statusCode);
   res.status(statusCode).send(obj);
 };
 export const handleApiRequest = async (req, res) => {
-  const cityName = req.body.cityName;
+  const cityName = req.params.cityName;
 
   try {
     if (cityName) {

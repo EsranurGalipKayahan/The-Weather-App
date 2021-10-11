@@ -1,7 +1,7 @@
 import app from "../app.js";
 import supertest from "supertest";
 import { APPLICATION_NAME } from "../sources/constants.js";
-/* This file is belonged to the previous week */
+
 const request = supertest(app);
 
 describe("POST /api/weather", () => {
